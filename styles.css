@@ -1,0 +1,11 @@
+.font-styles {
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.kanvas {
+    width: 600px;
+    padding: 200px 20px;
+    text-align: center;
+    border: 1px solid #00b0ff;
+}

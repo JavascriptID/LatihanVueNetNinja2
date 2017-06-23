@@ -1,0 +1,19 @@
+{
+  "name": "belajarvuejsnetninja",
+  "version": "1.0.0",
+  "description": "belajar vue js tanpa CLI",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "live": "live-server --port=4200 --host=localhost --entry-file=/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "githubs"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "gulajava",
+  "license": "ISC"
+}
