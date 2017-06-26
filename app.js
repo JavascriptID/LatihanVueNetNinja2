@@ -4,26 +4,43 @@
 new Vue({
     el: '#vue-app',
     data: {
-        usia: 20,
-        dataX: 0,
-        dataY: 0
+        umurInt: 20,
+        umurCacheB: 0,
+        nilaiA: 0,
+        nilaiB: 0
     },
     methods: {
-
-        tambahUmur: function (usiaInc) {
-
-            // this.usia++;
-            this.usia = this.usia + usiaInc;
+        addNilaiA: function () {
+            this.nilaiA = this.nilaiA + 1;
         },
-        kurangiUmur: function (usiaDec) {
-
-            // this.usia--;
-            this.usia = this.usia - usiaDec;
+        addNilaiB: function () {
+            this.nilaiB = this.nilaiB + 1;
         },
-        updateDataXY : function (events) {
-            // console.log(events);
-            this.dataX = events.offsetX;
-            this.dataY = events.offsetY;
+        addUmurDenganAMethod: function () {
+            console.log('fungsi a method sedang jalan');
+            return this.umurInt + this.nilaiA;
+        },
+        addUmurDenganBMethod: function () {
+            console.log('fungsi b method sedang jalan');
+            return this.umurInt + this.nilaiB;
+        }
+    },
+    computed: {
+        addUmurDenganA: function () {
+            console.log('fungsi a computed sedang jalan');
+            return this.umurInt + this.nilaiA;
+        },
+        addUmurDenganB: function () {
+            console.log('fungsi b computed sedang jalan');
+            return this.umurInt + this.nilaiB;
+        },
+        addUmurDenganAComputed : function () {
+
+            return this.addUmurDenganAMethod();
+        },
+        addUmurDenganBComputed : function () {
+
+            return this.addUmurDenganBMethod();
         }
     }
 });

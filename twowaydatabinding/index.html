@@ -17,24 +17,20 @@
 </head>
 <body>
 
-<!--COMPUTED PROPERTY VUE JS -->
+<!--DATA BINDING DI VUE -->
 <div id="vue-app">
 
-    <h1>Computed Property Vue Js</h1>
-
-    <button v-on:click="addNilaiA()">Tambah Nilai A</button>
-    <button v-on:click="addNilaiB()">Tambah Nilai B</button>
-    <p>A = {{nilaiA}}</p>
-    <p>B = {{nilaiB}}</p>
-    <!--<p>Umur + A = {{addUmurDenganA()}}</p>-->
-    <!--<p>Umur + B = {{addUmurDenganB()}}</p>-->
-
-    <!-- dengan property computed, jangan kasih tanda kurung-->
-    <p>Umur + A = {{addUmurDenganA}}</p>
-    <p>Umur + B = {{addUmurDenganB}}</p>
-    <p>Umur + A Method Computed = {{addUmurDenganAComputed}}</p>
-    <p>Umur + B Method Computed = {{addUmurDenganBComputed}}</p>
-
+    <h1>Two Way Data Binding</h1>
+    <label>Nama : </label>
+    <input type="text" v-model="nama">
+    <div>
+        <span>{{nama}}</span>
+    </div>
+    <label>Umur :</label>
+    <input type="text" v-model="umur">
+    <div>
+        <span>{{umur}}</span>
+    </div>
 </div>
 
 <!--Import jQuery before materialize.js-->

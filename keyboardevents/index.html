@@ -17,24 +17,21 @@
 </head>
 <body>
 
-<!--COMPUTED PROPERTY VUE JS -->
+<!--KEYBOARD EVENTS -->
 <div id="vue-app">
 
-    <h1>Computed Property Vue Js</h1>
-
-    <button v-on:click="addNilaiA()">Tambah Nilai A</button>
-    <button v-on:click="addNilaiB()">Tambah Nilai B</button>
-    <p>A = {{nilaiA}}</p>
-    <p>B = {{nilaiB}}</p>
-    <!--<p>Umur + A = {{addUmurDenganA()}}</p>-->
-    <!--<p>Umur + B = {{addUmurDenganB()}}</p>-->
-
-    <!-- dengan property computed, jangan kasih tanda kurung-->
-    <p>Umur + A = {{addUmurDenganA}}</p>
-    <p>Umur + B = {{addUmurDenganB}}</p>
-    <p>Umur + A Method Computed = {{addUmurDenganAComputed}}</p>
-    <p>Umur + B Method Computed = {{addUmurDenganBComputed}}</p>
-
+    <h1>Keyboard Events</h1>
+    <label>Nama : </label>
+    <input type="text" v-on:keyup="logNama">
+    <label>Umur :</label>
+    <!--on keyup mengirimkan event ketika setiap key habis ditulis-->
+    <input type="text" v-on:keyup="logUmur">
+    <!-- tambahkan jalankan fungsi jika enter di tekan-->
+    <label>Umur Enter : </label>
+    <input type="text" v-on:keyup.enter="logUmur">
+    <!-- jalankan fungsi dengan menekan tombol alt dan enter -->
+    <label>Umur Alt Enter : </label>
+    <input type="text" v-on:keyup.alt.enter="logAltEnterUmur">
 </div>
 
 <!--Import jQuery before materialize.js-->
