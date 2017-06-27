@@ -1,13 +1,16 @@
 /**
  * Created by rian on 6/22/17.
  */
-new Vue({
+var vm = new Vue({
     el: '#vue-app',
     data: {
         umurInt: 20,
-        umurCacheB: 0,
         nilaiA: 0,
-        nilaiB: 0
+        nilaiB: 0,
+        nilaiBCached: 0,
+        umurIntAComputed: 0,
+        umurIntBComputed: 0,
+        umurABTotal: 0
     },
     methods: {
         addNilaiA: function () {
@@ -16,31 +19,51 @@ new Vue({
         addNilaiB: function () {
             this.nilaiB = this.nilaiB + 1;
         },
-        addUmurDenganAMethod: function () {
-            console.log('fungsi a method sedang jalan');
-            return this.umurInt + this.nilaiA;
-        },
-        addUmurDenganBMethod: function () {
-            console.log('fungsi b method sedang jalan');
-            return this.umurInt + this.nilaiB;
+        // addUmurDenganA: function () {
+        //
+        //     console.log('fungsi tambah umur A jalan');
+        //     return this.nilaiA + this.umurInt;
+        // },
+        // addUmurDenganB: function () {
+        //     console.log('fungsi tambah umur B jalan');
+        //
+        //     this.nilaiBCached = this.nilaiBCached + 1;
+        //     console.log('nilai b cached' + this.nilaiBCached);
+        //     return this.nilaiB + this.umurInt;
+        // },
+        jumlahkanUmur: function () {
+
+            this.tambahUmurABSetterGetter = 'Umurnya = '
         }
     },
     computed: {
-        addUmurDenganA: function () {
-            console.log('fungsi a computed sedang jalan');
-            return this.umurInt + this.nilaiA;
-        },
-        addUmurDenganB: function () {
-            console.log('fungsi b computed sedang jalan');
-            return this.umurInt + this.nilaiB;
-        },
-        addUmurDenganAComputed : function () {
+        addUmurDenganAComputed: function () {
 
-            return this.addUmurDenganAMethod();
+            this.umurIntAComputed = this.nilaiA + this.umurInt;
+            console.log('fungsi computed property A sedang berjalan ');
+            return this.umurIntAComputed;
+            // return this.nilaiA + this.umurInt;
         },
-        addUmurDenganBComputed : function () {
+        addUmurDenganBComputed: function () {
 
-            return this.addUmurDenganBMethod();
+            this.umurIntBComputed = this.nilaiB + this.umurInt;
+            console.log('fungsi computed property B sedang berjalan ');
+            return this.umurIntBComputed;
+            // return this.nilaiB + this.umurInt;
+        },
+        //    dengan menggunakan setter getter
+        tambahUmurABSetterGetter: {
+            get: function () {
+
+                console.log('nilai umur a dan b total');
+                return this.umurABTotal;
+            },
+            set: function (nilaiVal) {
+
+                var umurtotal = this.umurIntAComputed + this.umurIntBComputed;
+                this.umurABTotal = nilaiVal + ' ' + umurtotal;
+            }
         }
     }
 });
+
