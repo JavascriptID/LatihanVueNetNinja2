@@ -17,40 +17,29 @@
 </head>
 <body>
 
-<!--COMPUTED PROPERTY VUE JS -->
+<!--KELAS CSS YANG BISA BERUBAH UBAH SESUAI KEBUTUHAN DENGAN V-BIND CLASS VUE JS -->
 <div id="vue-app">
+    <h1>Dynamic CSS</h1>
+    <h2>Contoh Ke-1</h2>
+    
+    <!-- contoh binding class css ke vue js, dengan menggunakan parameter true atau false-->
+    <div v-bind:class="{red: true, blue: true}"></div>
 
-    <h1>Computed Property Vue Js</h1>
+    <!-- contoh dengan kelas dari css style -->
+    <!-- tampilan akan berubah jika isAvailable bernilai true-->
+    <div v-on:click="setAvailables()" v-bind:class="{availableCSS:isAvailable}">
+        <span class="spanCSS">Teks Pertama Lorem Ipsum Tersedia Lagi</span>
+    </div>
 
-    <button v-on:click="addNilaiA()">Tambah Nilai A</button>
-    <button v-on:click="addNilaiB()">Tambah Nilai B</button>
-    <p>A = {{nilaiA}}</p>
-    <p>B = {{nilaiB}}</p>
-
-    <!-- dengan menggunakan method property-->
-    <!-- jika method property digunakan seperti ini maka setiap view
-    mengalami render maka akan dijalankan semua fungsinya
-    https://alligator.io/vuejs/computed-properties/
-    -->
-    <!--<p>Umur + A = {{addUmurDenganA()}}</p>-->
-    <!--<p>Umur + B = {{addUmurDenganB()}}</p>-->
-
-    <!-- dengan property computed, jangan kasih tanda kurung karena computed adalah fungsi tanpa masukan parameter-->
-    <!-- fungsi computed property akan berjalan jika nilai dari data yang dipakai oleh computed property
-        berubah dan bereaksi, dan computed property terpasang di html nya-->
-    <h2>Dengan Computed Property</h2>
-    <p>Umur + A Computed = {{addUmurDenganAComputed}}</p>
-    <p>Umur + B Computed = {{addUmurDenganBComputed}}</p>
-
-    <h2>Nilai dari Umur A dan B Computed</h2>
-    <p>Nilai Umur A Computed = {{umurIntAComputed}}</p>
-    <p>Nilai Umur B Computed = {{umurIntBComputed}}</p>
-
-    <p>Hasil Jumlah Umur</p>
-    <button v-on:click="jumlahkanUmur()">JumlahKan Umur</button>
-    <p>Hasil Umurnya adalah : {{tambahUmurABSetterGetter}}</p>
-
-
+    <h2>Contoh Ke-2</h2>
+    <div v-bind:class="setCompClasses">
+        <span class="spanCSS">Teks Span CSS dengan computed property</span>
+    </div>
+    <button v-on:click="changeIsAvailable()">Ganti isAvailable</button>
+    <button v-on:click="changeIsNearby()">Ganti isNearby</button>
+    <div v-if="isNearby">
+        hasil v-if saja
+    </div>
 </div>
 
 <!--Import jQuery before materialize.js-->
