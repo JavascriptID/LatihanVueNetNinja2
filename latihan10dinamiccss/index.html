@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Belajar Vue JS</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="libs/materialize/css/materialize.min.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="styles.css" rel="stylesheet">
+    <script src="libs/vue.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!--KELAS CSS YANG BISA BERUBAH UBAH SESUAI KEBUTUHAN DENGAN V-BIND CLASS VUE JS -->
+<div id="vue-app">
+    <h1>Dynamic CSS</h1>
+
+    <!-- contoh binding class css ke vue js, dengan menggunakan parameter true atau false-->
+    <!-- {red:true} artinya nilai css red bernilai true dan akan dijalankan di dalam html nya-->
+    <h3>Contoh Ke-1</h3>
+    <div v-bind:class="{red:true, blue: true, green: false}">
+       Hello class CSS binding 
+    </div>    
+    
+    <h3>Contoh Ke-2</h3>
+    <div v-on:click="setAvailables()" v-bind:class="{availableCSS:isAvailable}">
+        <span class="spanCSS">
+            Teks CSS isAvailable Yang Berubah Ketika di Klik
+        </span>
+    </div>
+
+    <h3>Contoh Ke-3</h3>
+    <!-- computed property yang akan berjalan jika ada variabel yang berubah dari elemen data-->
+    <!-- computed property memberikan daftar nilai CSS dalam bentuk object-->
+    <div v-bind:class="compClassCSS">
+        <span class="spanCSS">Teks CSS dengan Computed Property</span>
+    </div>
+    <div>
+        <button v-on:click="setAvailables()">Ganti isAvailable</button>
+        <button v-on:click="setNearby()">Ganti isNearby</button>        
+    </div>
+    
+
+    
+</div>
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="libs/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="libs/materialize/js/materialize.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,32 +1,30 @@
-
-let vm = new Vue({
+// CONDITIONAL DOM RENDERING
+var vm = new Vue({
     el: '#vue-app',
     data: {
-        isAvailable: false,
-        isNearby: false
+        isSukses: false,
+        isError: false
     },
     methods: {
-        setAvailables: function() {
-            this.isAvailable = !this.isAvailable;
+        setIsSukses: function () {
+            console.log('set sukses berjalan');
+            this.isSukses = !this.isSukses;
         },
-        changeIsAvailable: function() {
-            this.isAvailable = !this.isAvailable;
-        },
-        changeIsNearby: function () {
-            this.isNearby = !this.isNearby;
+        setIsError: function () {
+            console.log('set error berjalan');
+            this.isError = !this.isError;
         }
     },
     computed: {
-        setCompClasses: function () {
-            
-            console.log('set kelas css berjalan');
-
-            var objClasses = {
-                availableCSS: this.isAvailable,
-                nearbyCSS: this.isNearby
-            };
-            
-            return objClasses;
+        compSuksesCSS: function () {
+            return {
+                suksesCSS: this.isSukses
+            }
+        },
+        compErrorCSS: function () {
+            return {
+                errorCSS: this.isError
+            }
         }
     }
 });

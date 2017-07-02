@@ -1,28 +1,11 @@
-.font-styles {
-    font-size: 10pt;
-    font-weight: bold;
-}
-
-.kanvas {
-    width: 600px;
-    padding: 200px 20px;
-    text-align: center;
-    border: 1px solid #00b0ff;
-}
-
-.spanCSS {
-    background: red;
-    display: inline-block;
-    padding: 10px;
-    color: #fff;
-    margin: 10px 0;
-}
-
-.availableCSS span {
+.suksesCSS {
     background: green;
+    padding: 10px;
+    color: white;
 }
 
-.nearbyCSS span:after {
-    content: "nearby";
-    margin-left: 10px;
+.errorCSS {
+    background: red;
+    padding: 10px;
+    color: white;
 }

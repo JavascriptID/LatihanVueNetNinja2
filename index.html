@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Belajar Vue JS</title>
@@ -17,29 +17,36 @@
 </head>
 <body>
 
-<!--KELAS CSS YANG BISA BERUBAH UBAH SESUAI KEBUTUHAN DENGAN V-BIND CLASS VUE JS -->
+<!-- MENAMPILKAN DOM HTML BERDASARKAN KONDISI DATA TRUE ATAU FALSE -->
 <div id="vue-app">
-    <h1>Dynamic CSS</h1>
-    <h2>Contoh Ke-1</h2>
+    <h1>Conditional DOM HTML Rendering</h1>
+    <button v-on:click="setIsSukses()">Aktifkan Sukses</button>
+    <button v-on:click="setIsError()">Aktifkan Error</button>
+
+    <!--tampilkan jika sukses atau error-->
+    <p v-if="isError">Error telah terjadi karena dimunculkan TRUE</p>
+    <p v-if="isSukses">Sukses telah terjadi karena dimunculkan TRUE</p>
     
-    <!-- contoh binding class css ke vue js, dengan menggunakan parameter true atau false-->
-    <div v-bind:class="{red: true, blue: true}"></div>
+    <!-- hanya munculkan salah satu saja dengan v-else-->
+    <h4>Conditional V-ELSE</h4>
+    <p v-if="isError">Error telah terjadi karena dimunculkan TRUE</p>
+    <p v-else>Sukses telah terjadi karena dimunculkan TRUE</p>
 
-    <!-- contoh dengan kelas dari css style -->
-    <!-- tampilan akan berubah jika isAvailable bernilai true-->
-    <div v-on:click="setAvailables()" v-bind:class="{availableCSS:isAvailable}">
-        <span class="spanCSS">Teks Pertama Lorem Ipsum Tersedia Lagi</span>
-    </div>
+    <!-- menggunakan logika v-else-if untuk memunculkan tampilan-->
+    <!-- nilai sukses di cek dulu sebelum di tampilkan, apakah true atau tidak-->
+    <h4>Conditional V-ELSE-IF</h4>
+    <p v-if="isError">Error telah terjadi karena dimunculkan TRUE</p>
+    <p v-else-if="isSukses">Sukses dengan else if telah muncul dan bernilai TRUE</p>
 
-    <h2>Contoh Ke-2</h2>
-    <div v-bind:class="setCompClasses">
-        <span class="spanCSS">Teks Span CSS dengan computed property</span>
-    </div>
-    <button v-on:click="changeIsAvailable()">Ganti isAvailable</button>
-    <button v-on:click="changeIsNearby()">Ganti isNearby</button>
-    <div v-if="isNearby">
-        hasil v-if saja
-    </div>
+
+    <!-- untuk menampilkan elemen DOM bisa dengan V-SHOW-->
+    <!-- dengan v-show , elemen sudah pasti di render di html -->
+    <!-- tapi statusnya menghilang atau muncul tergantung dari elemen CSS display yang diubah -  ubah -->
+    <h4>Conditional V-SHOW</h4>
+    <p v-show="isError" v-bind:class="compErrorCSS">Telah terjadi ERROR (true)</p>
+    <p v-show="isSukses" v-bind:class="compSuksesCSS">Telah terjadi SUKSES (true)</p>
+
+
 </div>
 
 <!--Import jQuery before materialize.js-->
