@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Belajar Vue JS</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="libs/materialize/css/materialize.min.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="styles.css" rel="stylesheet">
+    <script src="libs/vue.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- MENAMPILKAN DATA DALAM BENTUK DAFTAR DENGAN V-FOR -->
+<div id="vue-app">
+
+    <h1>Membuat Daftar Data dengan V-For</h1>
+
+    <h4>Cara yang Salah</h4>
+    <div>
+        {{karakters[0]}}
+        {{karakters[1]}}
+        {{karakters[2]}}
+    </div>
+
+    <h4>Cara Benar 1</h4>
+    <ul>
+        <li v-for="karakter in karakters">
+            <div>
+                Nama karakter {{karakter}}
+            </div>
+        </li>
+    </ul>
+
+    <h4>Cara Benar 2</h4>
+    <ul>
+        <li v-for="namaorang in namaorangs">
+            <div>{{namaorang.nama}} yang berumur {{namaorang.umur}} tahun</div>
+        </li>
+    </ul>
+
+
+    <h4>Cara Benar 3 dengan Index</h4>
+    <ul>
+        <li v-for="(namaorang, index) in namaorangs">
+            <div>
+                Index {{index}} -- {{namaorang.nama}} yang berumur {{namaorang.umur}} tahun
+            </div>
+        </li>
+    </ul>
+
+
+    <h4>Cara 4 dengan Menggunakan Element Bukan ul dan li</h4>
+    <div v-for="(namaorang, index) in namaorangs">
+        <h5>{{index}} -- {{namaorang.nama}}</h5>
+        <p>Umur orang ini adalah {{namaorang.umur}}</p>
+    </div>
+
+    <!-- jika ingin yang ada di tampilan html nya tanpa div, dan langsung isi kontennya-->
+    <!-- bisa dengan menggunakan tag template -->
+    <h4>Cara 5 dengan Menggunakan Template untuk Daftarnya</h4>
+    <template v-for="(namaorang, index) in namaorangs">
+        <h5>{{index}} -- {{namaorang.nama}}</h5>
+        <p>Umur orang ini adalah {{namaorang.umur}}</p>
+    </template>
+
+    <!-- menampilkan data dalam bentuk objek dengan menggunakan v-for langsung -->
+    <h4>Menampilkan Data Objek dengan V-for</h4>
+    <ul>
+        <li v-for="value in objeknama">
+            Isi data Objek nya adalah : {{value}}
+        </li>
+    </ul>
+
+    <!-- dengan menggunakan nama key dari tag json objek data nya-->
+    <div v-for="(value, key) in objeknama">
+        <p>Data {{key}} : {{value}}</p>
+    </div>
+
+    <!-- dengan menggunakan index-->
+    <div v-for="(value,key,index) in objeknama">
+        <p>{{index}} -- data {{key}} : {{value}}</p>
+    </div>
+
+
+    <h4>Cara menampilkan data di dalam daftar lagi dengan v-for juga</h4>
+    <template v-for="namaorang in namaorangs">
+        <div v-for="(value, key) in namaorang">
+            <p>Data {{key}} : {{value}}</p>
+        </div>
+    </template>
+
+
+</div>
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="libs/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="libs/materialize/js/materialize.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

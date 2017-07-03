@@ -17,35 +17,11 @@
 </head>
 <body>
 
-<!-- MENAMPILKAN DOM HTML BERDASARKAN KONDISI DATA TRUE ATAU FALSE -->
+<!-- PENGENALAN PADA VUE COMPONENT DASAR TANPA CLI -->
 <div id="vue-app">
-    <h1>Conditional DOM HTML Rendering</h1>
-    <button v-on:click="setIsSukses()">Aktifkan Sukses</button>
-    <button v-on:click="setIsError()">Aktifkan Error</button>
 
-    <!--tampilkan jika sukses atau error-->
-    <p v-if="isError">Error telah terjadi karena dimunculkan TRUE</p>
-    <p v-if="isSukses">Sukses telah terjadi karena dimunculkan TRUE</p>
+    <h1>Pengenalan Dasar Vue Component Tanpa CLI</h1>
     
-    <!-- hanya munculkan salah satu saja dengan v-else-->
-    <h4>Conditional V-ELSE</h4>
-    <p v-if="isError">Error telah terjadi karena dimunculkan TRUE</p>
-    <p v-else>Sukses telah terjadi karena dimunculkan TRUE</p>
-
-    <!-- menggunakan logika v-else-if untuk memunculkan tampilan-->
-    <!-- nilai sukses di cek dulu sebelum di tampilkan, apakah true atau tidak-->
-    <h4>Conditional V-ELSE-IF</h4>
-    <p v-if="isError">Error telah terjadi karena dimunculkan TRUE</p>
-    <p v-else-if="isSukses">Sukses dengan else if telah muncul dan bernilai TRUE</p>
-
-
-    <!-- untuk menampilkan elemen DOM bisa dengan V-SHOW-->
-    <!-- dengan v-show , elemen sudah pasti di render di html -->
-    <!-- tapi statusnya menghilang atau muncul tergantung dari elemen CSS display yang diubah -  ubah -->
-    <h4>Conditional V-SHOW</h4>
-    <p v-show="isError" v-bind:class="compErrorCSS">Telah terjadi ERROR (true)</p>
-    <p v-show="isSukses" v-bind:class="compSuksesCSS">Telah terjadi SUKSES (true)</p>
-
 
 </div>
 
