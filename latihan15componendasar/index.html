@@ -19,23 +19,23 @@
 
 <body>
 
-    <!-- PENGENALAN DASAR KONSEP REFS UNTUK REFERENSI DOM KOMPONEN DI DALAMNYA -->
-    <!-- atribut ref akan dibaca dengan fungsi $ref dan dapat diambil nilai nilainya-->
-    <div id="vue-app">
-        <h2>Pengenalan Refs</h2>
-        <!-- beri atribut ref kustom untuk input-->
-        <input type="text" ref="input_kata">
-        <button v-on:click="bacaRefs()">Kirim Kata</button>
-        <div ref="refDivTestingAja">Testings Aja</div>
+    <!-- PENGENALAN DASAR KONSEP KOMPONEN -->
+    <div id="vue-app-satu">
+        <h3>Vue App Satu</h3>
+        <hello-component></hello-component>
+    </div>
 
+    <div id="vue-app-dua">
+        <h3>Vue App Dua</h3>
+        <hello-component></hello-component>
         <div>
-            <p>Kata yang dimasukkan adalah : {{dataRefOutput}}</p>
+            <hello-component-shared></hello-component-shared>
         </div>
+    </div>
 
-        <div>
-            <p>Isi kata testing adalah : {{dataDivRef}}</p>
-        </div>
-        <button v-on:click="bacaRefDiv()">Baca nilai Dari Div</button>
+    <div id="vue-app-tiga">
+        <h3>Vue App Tiga</h3>
+        <hello-component-shared></hello-component-shared>
     </div>
 
     <!--Import jQuery before materialize.js-->

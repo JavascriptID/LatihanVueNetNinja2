@@ -19,23 +19,19 @@
 
 <body>
 
-    <!-- PENGENALAN DASAR KONSEP REFS UNTUK REFERENSI DOM KOMPONEN DI DALAMNYA -->
-    <!-- atribut ref akan dibaca dengan fungsi $ref dan dapat diambil nilai nilainya-->
-    <div id="vue-app">
-        <h2>Pengenalan Refs</h2>
-        <!-- beri atribut ref kustom untuk input-->
-        <input type="text" ref="input_kata">
-        <button v-on:click="bacaRefs()">Kirim Kata</button>
-        <div ref="refDivTestingAja">Testings Aja</div>
+    <!-- PENGENALAN PADA VUE INSTANCE LEBIH DARI SATU -->
+    <h1>Multiple Vue Instances</h1>
+    <div id="vue-app-satu">
+        <h2>{{judul}}</h2>
+        <p>{{greetHello}}</p>
+        <button v-on:click="changeJudulApp2()">Ganti Judul Vue App 2</button>
+    </div>
 
-        <div>
-            <p>Kata yang dimasukkan adalah : {{dataRefOutput}}</p>
-        </div>
-
-        <div>
-            <p>Isi kata testing adalah : {{dataDivRef}}</p>
-        </div>
-        <button v-on:click="bacaRefDiv()">Baca nilai Dari Div</button>
+    <!-- VUE INSTANCE YANG KEDUA -->
+    <div id="vue-app-dua">
+        <h2>{{judul}}</h2>
+        <p>{{greetHello}}</p>
+        <button v-on:click="changeJudulApp1()">Ganti Judul Vue App 1 Instance</button>
     </div>
 
     <!--Import jQuery before materialize.js-->
